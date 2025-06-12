@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+<head>
+    <meta charset="utf-8">
+    <title>TCE CLUB PORTFOLIO</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&family=Poppins:wght@200;300;400;500;600&display=swap"
+        rel="stylesheet">
+
+    <!-- Icon Font Stylesheet -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="{{ asset('lib/animate/animate.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('lib/owlcarousel/assets/owl.carousel.min.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <!-- AOS CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
+</head>
+
+
+<style>
+.enroll-button {
+    display: inline-block;
+    padding: 12px 30px;
+    font-size: 18px;
+    font-weight: 600;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: white;
+    background: linear-gradient(135deg, #00b894, #0984e3);
+    border: none;
+    border-radius: 50px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease-in-out;
+    position: relative;
+    overflow: hidden;
+}
+
+.enroll-button:hover {
+    background: linear-gradient(135deg, #0984e3, #00b894);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+    transform: translateY(-3px);
+    color: white;
+}
+
+.box {
+    color: white;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-radius: 7px;
+}
+
+.box.small {
+    width: 250px;
+    height: 250px;
+}
+
+.box.wide {
+    width: 400px;
+    height: 250px;
+}
+
+.box.red {
+    background-color: #e63946;
+}
+
+.box.orange {
+    background-color: #f4a261;
+}
+
+.box.green {
+    background-color: #2a9d8f;
+}
+
+.box.blue {
+    background-color: #264653;
+}
+
+.plus-icon-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: #800000;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    font-size: 28px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: 0.3s ease-in-out;
+    z-index: 9999;
+}
+
+.plus-icon-btn:hover {
+    background-color: #a00000;
+    transform: scale(1.05);
+}
+
+.admin-login-box {
+    position: fixed;
+    bottom: 100px;
+    right: 30px;
+    background-color: white;
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 12px;
+    width: 250px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+    z-index: 9999;
+}
+
+.box.image-box {
+    padding: 0;
+    overflow: hidden;
+    border-radius: 7px;
+}
+
+.box.image-box img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 7px;
+}
+
+.row.custom-gutter {
+    margin-left: -0.25rem;
+    margin-right: -0.25rem;
+    justify-content: center;
+}
+
+.row.custom-gutter>[class*='col-'] {
+    padding-left: 0.25rem;
+    padding-right: 0.25rem;
+    display: flex;
+    justify-content: center;
+}
+
+.row.custom-gutter+.row.custom-gutter {
+    margin-top: 1rem;
+}
+
+.club-text h5 {
+
+    margin-bottom: 10px;
+    letter-spacing: 0.8px;
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.club-text h1 {
+    color: #800000;
+    font-size: 2rem;
+    line-height: 1.3;
+    margin-bottom: 15px;
+}
+
+.club-text p {
+    color: black;
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 0;
+}
+
+.add-club-btn {
+    width: 60px;
+    height: 60px;
+    font-size: 30px;
+    border-radius: 50%;
+    background-color: white;
+    color: black;
+    border: 2px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.3s ease;
+}
+
+.add-club-btn:hover {
+    background-color: #800000;
+    color: white;
+    border-color: #800000;
+}
+</style>
+
+
+
+<body>
+
+    <!-- Spinner Start -->
+    <div id="spinner"
+        class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner-border text-secondary" style="width: 3rem; height: 3rem;" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+    <!-- Normal Header (static) -->
+    <div style="
+  width: 100%;
+  background-color: white;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  /* NO position: fixed or sticky */
+  height: max-content;
+">
+        <div class="container d-flex align-items-center justify-content-between py-3">
+
+            <!-- Logo -->
+            <a href="index.html" class="d-flex align-items-center text-decoration-none">
+                <img src="{{ asset('img/logo.jpg') }}" alt="Logo" style="height: 60px;">
+            </a>
+
+            <!-- Navigation Links -->
+            <div style="display: flex; gap: 40px;">
+                <a href="{{url('/')}}" class="nav-item"
+                    style="text-align: center; color: black; text-decoration: none; font-weight: 600;">
+                    <i data-feather="home" style="stroke:#2A5D9F; width:36px; height:36px;"></i><br>Home
+                </a>
+                <a href="about.html" class="nav-item"
+                    style="text-align: center; color: black; text-decoration: none; font-weight: 600;">
+                    <i data-feather="users" style="stroke:#E76F51; width:36px; height:36px;"></i><br>Clubs
+                </a>
+                <a href="service.html" class="nav-item"
+                    style="text-align: center; color: black; text-decoration: none; font-weight: 600;">
+                    <i data-feather="calendar" style="stroke:#E9C46A; width:36px; height:36px;"></i><br>Events
+                </a>
+                <a href="{{ route('register.form') }}" class="nav-item"
+                    style="text-align: center; color: black; text-decoration: none; font-weight: 600;">
+                    <i data-feather="edit-3" style="stroke:#F4A261; width:36px; height:36px;"></i><br>Enroll
+                </a>
+                <a href="#" class="nav-item" onclick="openLogin('student')"
+                    style="text-align: center; color: black; text-decoration: none; font-weight: 600;">
+                    <i data-feather="log-in" style="stroke:#2A9D8F; width:36px; height:36px;"></i><br>Login
+                </a>
+
+            </div>
+
+        </div>
+    </div>
+
+    <!-- No extra padding needed because header is static -->
+
+    <!-- Feather Icons -->
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script>
+    feather.replace()
+    </script>
+
+    <!-- Carousel Start -->
+    <div class="carousel-header">
+        <div id="carouselId" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
+            <ol class="carousel-indicators">
+                <li data-bs-target="#carouselId" data-bs-slide-to="0" class="active"></li>
+                <li data-bs-target="#carouselId" data-bs-slide-to="1"></li>
+                <li data-bs-target="#carouselId" data-bs-slide-to="2"></li>
+            </ol>
+            <div class="carousel-inner" role="listbox" style="height: 500px; overflow: hidden;background: #fafafa">
+                <div class="carousel-item active" style="height: 500px;">
+                    <img src="{{ asset('img/clg1.jpg') }}" class="d-block w-100" alt="Image"
+                        style="height: 500px; object-fit: contain;">
+                </div>
+                <div class="carousel-item" style="height: 500px;">
+                    <img src="{{asset('img/clg2.jpg')}}" class="d-block w-100" alt="Image"
+                        style="height: 500px; object-fit: contain;">
+                </div>
+                <div class="carousel-item" style="height: 500px;">
+                    <img src="{{asset('img/b4_PhotoGrid.png')}}" class="d-block w-100" alt="Image"
+                        style="height: 500px; object-fit:contain;">
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselId" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon bg-secondary" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselId" data-bs-slide="next">
+                <span class="carousel-control-next-icon bg-secondary" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </div>
+    <!-- Carousel End -->
+
+    <div class="container-fluid py-5">
+        <div class="container py-5">
+
+            <!-- Text Section: Appears first, centered -->
+            <div class="row justify-content-center text-center mb-5">
+                <div class="col-lg-8">
+                    <div class="club-text">
+                        <h5>Clubs at TCE</h5>
+                        <h1>A Vibrant Hub for Innovation, Culture, and Community</h1>
+                        <p>
+                            TCE's clubs foster a dynamic environment where technology, social causes, and cultural
+                            passions thrive side by side.
+                            From cutting-edge tech innovation groups to spirited cultural and social clubs, students
+                            find endless opportunities to connect, learn, and lead.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Boxes Section: Appears after, centered -->
+            <div class="row justify-content-center">
+
+                <!-- First Row -->
+                <div class="col-auto mb-3" data-aos="fade-right" data-aos-duration="1000">
+                    <div class="box red small">Innovate, code, and build the future with cutting-edge tech and hands-on
+                        workshops!</div>
+                </div>
+                <div class="col-auto mb-3" data-aos="fade-down" data-aos-duration="1000">
+                    <div class="box orange small">Turn ideas into reality — join the makers, creators, and startup
+                        dreamers!</div>
+                </div>
+                <div class="col-auto mb-3" data-aos="fade-left" data-aos-duration="1000">
+                    <div class="box image-box wide">
+                        <img src="{{asset('img/WhatsApp Image 2025-06-08 at 17.53.57_20a7efab.jpg')}}" alt="Image 1" />
+                    </div>
+                </div>
+
+                <!-- Second Row -->
+                <div class="col-auto mb-3" data-aos="fade-right" data-aos-duration="1500">
+                    <div class="box image-box wide">
+                        <img src="{{asset('img/w1.jpg')}}" alt="Image 2" />
+                    </div>
+                </div>
+                <div class="col-auto mb-3" data-aos="fade-up" data-aos-duration="1500">
+                    <div class="box green small">From engines to robots — design, create, and bring machines to life
+                        these</div>
+                </div>
+                <div class="col-auto mb-3" data-aos="fade-left" data-aos-duration="1500">
+                    <div class="box blue small">Express your passion — dance, debate, compete, and shine on every stage
+                        and field!</div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- AOS and Bootstrap JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+    AOS.init();
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Counter/Waypoint Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/counterup2@1.0.7/dist/index.min.js"></script>
+
+
+
+
+    <!-- Counter Facts Start -->
+    <div class="container-fluid py-5" style="background-color: #800000;">
+        <div class="container py-5">
+            <div class="row g-4 justify-content-center text-center">
+
+                <!-- Counter Box -->
+                <div class="col-12 col-sm-6 col-xl-3 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="p-4 bg-white rounded-4 shadow-sm h-100">
+                        <i class="fas fa-layer-group fa-3x mb-3" style="color: #b8860b;"></i>
+                        <h5 class="fw-semibold mb-2" style="color: #b8860b;">Clubs</h5>
+                        <h2 class="mb-0 fw-bold counter" data-target="27" style="color: #333;">0</h2>
+                    </div>
+                </div>
+
+                <div class="col-12 col-sm-6 col-xl-3 wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="p-4 bg-white rounded-4 shadow-sm h-100">
+                        <i class="fas fa-users fa-3x mb-3" style="color: #b8860b;"></i>
+                        <h5 class="fw-semibold mb-2" style="color: #b8860b;">Members</h5>
+                        <h2 class="mb-0 fw-bold counter" data-target="400" style="color: #333;">0</h2>
+                    </div>
+                </div>
+
+                <div class="col-12 col-sm-6 col-xl-3 wow fadeInUp" data-wow-delay="0.5s">
+                    <div class="p-4 bg-white rounded-4 shadow-sm h-100">
+                        <i class="far fa-calendar-alt fa-3x mb-3" style="color: #b8860b;"></i>
+                        <h5 class="fw-semibold mb-2" style="color: #b8860b;">Events</h5>
+                        <h2 class="mb-0 fw-bold counter" data-target="100" style="color: #333;">0</h2>
+                    </div>
+                </div>
+
+                <div class="col-12 col-sm-6 col-xl-3 wow fadeInUp" data-wow-delay="0.7s">
+                    <div class="p-4 bg-white rounded-4 shadow-sm h-100">
+                        <i class="fas fa-lightbulb fa-3x mb-3" style="color: #b8860b;"></i>
+                        <h5 class="fw-semibold mb-2" style="color: #b8860b;">Patents</h5>
+                        <h2 class="mb-0 fw-bold counter" data-target="42" style="color: #333;">0</h2>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- Counter Facts End -->
+
+    <!-- Counter Script -->
+    <script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const counters = document.querySelectorAll('.counter');
+        counters.forEach(counter => {
+            const updateCount = () => {
+                const target = +counter.getAttribute('data-target');
+                const count = +counter.innerText;
+
+                const speed = 100; // Lower is faster
+                const increment = Math.ceil(target / speed);
+
+                if (count < target) {
+                    counter.innerText = count + increment;
+                    setTimeout(updateCount, 20);
+                } else {
+                    counter.innerText = target;
+                }
+            };
+            updateCount();
+        });
+    });
+    </script>
+
+    <!-- Services Start -->
+    <div class="container-fluid service overflow-hidden pt-5">
+        <div class="container py-5">
+            <div class="section-title text-center mb-5 wow fadeInUp" data-wow-delay="0.1s">
+                <div class="sub-style">
+                    <h5 class="sub-title text-primary px-3">Clubs</h5>
+                </div>
+                <h1 class="display-5 mb-4">Enabling Your Immigration Successfully</h1>
+                <p class="mb-0">Explore the vibrant student clubs at TCE that spark innovation, leadership, and
+                    creativity.</br>Join communities that empower you beyond academics through tech, culture, and more.
+                </p>
+            </div>
+            <div class="row g-4">
+                @foreach($clubs as $index => $club)
+                <div class="col-lg-6 col-xl-4 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="service-item">
+                        <div class="service-inner">
+                            <div class="service-img">
+                                <img src="{{ asset($club->logo) }}" class="img-fluid w-100 rounded" alt="Image">
+                            </div>
+                            <div class="service-title">
+                                <div class="service-title-name">
+                                    <div class="text-center rounded p-3 mx-5 mb-4" style="background-color: #063c64;">
+                                        <a href="#" class="h4 text-white mb-0"
+                                            style="text-decoration: none;">{{$club->cname}}</a>
+                                    </div>
+
+
+
+                                </div>
+                                <div class="service-content pb-4" style="background-color: white; color: black;">
+                                    <a href="#" style="color: black;">
+                                        <h4 class="mb-4 py-3" style="color: black;">{{$club->cname}}</h4>
+                                    </a>
+                                    <div class="px-4">
+                                        <p class="mb-4" style="color: black;">
+                                            {{$club->intro}}
+                                        </p>
+                                        <a href="{{ url('iot') }}" class="btn rounded-pill py-3 px-5"
+                                            style="background-color: #800000; color: white;">Explore More</a>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                @endforeach
+                <button onclick="openLogin('club')" id="plusButton"
+                    class="btn btn-outline-primary rounded-circle shadow">
+                    +
+                </button>
+
+                <style>
+                #plusButton {
+                    position: fixed;
+                    bottom: 100px;
+                    right: 30px;
+                    width: 60px;
+                    height: 60px;
+                    font-size: 32px;
+                    font-weight: bold;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    z-index: 1050;
+                    background-color: white;
+                    border: 2px solid #063c64;
+                    color: #063c64;
+                }
+
+                #plusButton:hover {
+                    background-color: #063c64;
+                    color: white;
+                }
+                </style>
+                <div class="modal fade" id="loginModal" tabindex="-1" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <form id="loginForm" class="modal-content">
+                            @csrf
+                            <div class="modal-header">
+                                <h5 class="modal-title">Admin Login</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <input type="text" id="adminUsername" name="username" class="form-control mb-3"
+                                    placeholder="Username" autocomplete="off" required>
+                                <input type="password" id="adminPassword" name="password" class="form-control mb-3"
+                                    placeholder="Password" autocomplete="new-password" required>
+                                <div id="loginError" class="text-danger" style="display: none;"></div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="submit" class="btn btn-primary">Login</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+
+                <script>
+                let loginAction = ''; // store whether student or club clicked
+
+                function openLogin(action) {
+                    loginAction = action;
+
+                    // Reset fields
+                    const username = document.getElementById('adminUsername');
+                    const password = document.getElementById('adminPassword');
+                    const errorBox = document.getElementById('loginError');
+
+                    if (username) username.value = '';
+                    if (password) password.value = '';
+                    if (errorBox) errorBox.style.display = 'none';
+
+                    // Open login modal
+                    const loginModal = new bootstrap.Modal(document.getElementById('loginModal'));
+                    loginModal.show();
+                }
+                </script>
+                <script>
+                document.getElementById("loginForm").addEventListener("submit", async function(e) {
+                    e.preventDefault();
+
+                    const form = e.target;
+                    const formData = new FormData(form);
+
+                    const response = await fetch("/check-admin", {
+                        method: "POST",
+                        headers: {
+                            "X-CSRF-TOKEN": form.querySelector('[name="_token"]').value
+                        },
+                        body: formData
+                    });
+
+                    const data = await response.json();
+                    console.log("Login Action:", loginAction);
+                    console.log("Server response:", data);
+
+                    if (data.success) {
+                        const loginModal = bootstrap.Modal.getInstance(document.getElementById(
+                            'loginModal'));
+                        loginModal.hide();
+
+                        if (loginAction === 'club') {
+                            const clubModal = new bootstrap.Modal(document.getElementById('addClubModal'));
+                            clubModal.show();
+                        } else if (loginAction === 'student') {
+                            window.location.href = "/students"; // your student page route
+                        }
+
+                        form.reset();
+                        document.getElementById("loginError").style.display = "none";
+
+                    } else {
+                        document.getElementById("loginError").textContent = "Invalid credentials.";
+                        document.getElementById("loginError").style.display = "block";
+                    }
+                });
+                </script>
+
+
+
+
+
+
+                <!-- Footer Start -->
+                <div class="container-fluid" style="background-color: #800000; color: white; padding: 40px 0;">
+                    <div class="container">
+                        <div class="row g-4">
+                            <!-- Contact Info -->
+                            <div class="col-md-6 col-lg-4">
+                                <h4 style="color: #B34747; margin-bottom: 20px;">Contact Info</h4>
+                                <p><i class="fa fa-map-marker-alt me-2" style="color: #B34747;"></i>123 College Road,
+                                    Chennai, India
+                                </p>
+                                <p><i class="fas fa-envelope me-2" style="color: #B34747;"></i>info@tce.edu.in</p>
+                                <p><i class="fas fa-phone me-2" style="color: #B34747;"></i>+91 44 1234 5678</p>
+                            </div>
+
+                            <!-- Opening Time -->
+                            <div class="col-md-6 col-lg-4">
+                                <h4 style="color: #B34747; margin-bottom: 20px;">Opening Time</h4>
+                                <p>Monday - Friday: 9:00 AM to 5:00 PM</p>
+                                <p>Saturday: 9:00 AM to 1:00 PM</p>
+                                <p>Sunday: Closed</p>
+                            </div>
+
+                            <!-- Social Media -->
+                            <div class="col-md-12 col-lg-4 d-flex flex-column">
+                                <h4 style="color: #B34747; margin-bottom: 20px;">Connect With Us</h4>
+                                <div>
+                                    <a href="#" style="color: white; margin-right: 15px; font-size: 1.5rem;"><i
+                                            class="fab fa-facebook-f"></i></a>
+                                    <a href="#" style="color: white; margin-right: 15px; font-size: 1.5rem;"><i
+                                            class="fab fa-twitter"></i></a>
+                                    <a href="#" style="color: white; margin-right: 15px; font-size: 1.5rem;"><i
+                                            class="fab fa-instagram"></i></a>
+                                    <a href="#" style="color: white; font-size: 1.5rem;"><i
+                                            class="fab fa-linkedin-in"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <hr style="border-color: #B34747; margin: 30px 0;">
+                        <div class="text-center" style="color: white; font-size: 0.9rem;">
+                            &copy; 2025 TCE College. All Rights Reserved.
+                        </div>
+                    </div>
+                </div>
+                <!-- Footer End -->
+
+
+                <!-- Back to Top -->
+                <a href="#" class="btn btn-primary btn-lg-square back-to-top"
+                    style="width: 40px; height: 40px; font-size: 16px;">
+                    <i class="fa fa-arrow-up"></i>
+                </a>
+
+
+
+                <!-- JavaScript Libraries -->
+                <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+                <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+                <script src="{{asset('lib/wow/wow.min.js')}}"></script>
+                <script src="{{asset('lib/easing/easing.min.js')}}"></script>
+                <script src="{{asset('lib/waypoints/waypoints.min.js')}}"></script>
+                <script src="{{asset('lib/counterup/counterup.min.js')}}"></script>
+                <script src="{{asset('lib/owlcarousel/owl.carousel.min.js')}}"></script>
+
+
+                <!-- Template Javascript -->
+                <script src="{{asset('js/main.js')}}"></script>
+                <!-- Add Club Modal -->
+                <div class="modal fade" id="addClubModal" tabindex="-1" aria-labelledby="addClubModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog">
+                        <form method="POST" action="{{ route('clubs.store') }}" enctype="multipart/form-data"
+                            class="modal-content">
+                            @csrf
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="addClubModalLabel">Add New Club</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+
+                                <div class="mb-3">
+                                    <label class="form-label">Club Name</label>
+                                    <input type="text" class="form-control" name="cname" required>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label class="form-label">Club Logo</label>
+                                    <input type="file" class="form-control" name="logo" required>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label class="form-label">Intro</label>
+                                    <textarea class="form-control" name="intro" rows="2"></textarea>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label class="form-label">Mission</label>
+                                    <textarea class="form-control" name="mission" rows="2"></textarea>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label class="form-label">Faculty Name</label>
+                                    <input type="text" class="form-control" name="faculty">
+                                </div>
+
+                                <div class="mb-3">
+                                    <label class="form-label">Faculty Contact</label>
+                                    <input type="text" class="form-control" name="facultyno">
+                                </div>
+
+                                <div class="mb-3">
+                                    <label class="form-label">Event Count</label>
+                                    <input type="number" class="form-control" name="eventno">
+                                </div>
+
+                                <div class="mb-3">
+                                    <label class="form-label">Team Members</label>
+                                    <input type="number" class="form-control" name="teamno">
+                                </div>
+
+                                <div class="mb-3">
+                                    <label class="form-label">Participants</label>
+                                    <input type="number" class="form-control" name="participants">
+                                </div>
+
+                                <div class="mb-3">
+                                    <label class="form-label">Year</label>
+                                    <input type="text" class="form-control" name="year">
+                                </div>
+
+                            </div>
+                            <div class="modal-footer">
+                                <button type="submit" class="btn btn-success">Save Club</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+</body>
+
+
+
+
+</html>
