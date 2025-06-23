@@ -15,7 +15,10 @@ use App\Models\Admin;
 // Home page - dynamic clubs list
 Route::get('/', [ClubController::class, 'index']);
 Route::post('/clubs', [ClubController::class, 'store'])->name('clubs.store');
+use App\Http\Controllers\EventController;
+Route::get('/events', [EventPageController::class, 'showEventsPage'])->name('events.page');
 
+Route::get('/events', [EventController::class, 'index'])->name('events.index');
 // Admin check (Note: not secure – use hashing in real apps)
 Route::post('/check-admin', function (Request $request) {
     $admin = Admin::where('username', $request->username)

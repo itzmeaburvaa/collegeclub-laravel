@@ -251,7 +251,7 @@
                     style="text-align: center; color: black; text-decoration: none; font-weight: 600;">
                     <i data-feather="users" style="stroke:#E76F51; width:36px; height:36px;"></i><br>Clubs
                 </a>
-                <a href="service.html" class="nav-item"
+                <a href="{{ route('events.index') }}" class="nav-item"
                     style="text-align: center; color: black; text-decoration: none; font-weight: 600;">
                     <i data-feather="calendar" style="stroke:#E9C46A; width:36px; height:36px;"></i><br>Events
                 </a>
@@ -259,10 +259,7 @@
                     style="text-align: center; color: black; text-decoration: none; font-weight: 600;">
                     <i data-feather="edit-3" style="stroke:#F4A261; width:36px; height:36px;"></i><br>Enroll
                 </a>
-                <a href="#" class="nav-item" onclick="openLogin('student')"
-                    style="text-align: center; color: black; text-decoration: none; font-weight: 600;">
-                    <i data-feather="log-in" style="stroke:#2A9D8F; width:36px; height:36px;"></i><br>Login
-                </a>
+                
 
             </div>
 
@@ -467,13 +464,13 @@
                     <div class="service-item">
                         <div class="service-inner">
                             <div class="service-img">
-                                <img src="{{ asset($club->logo) }}" class="img-fluid w-100 rounded" alt="Image">
+                                <img src="{{ asset('storage/' . $club->logo) }}" class="img-fluid w-100 rounded" alt="Image">
                             </div>
                             <div class="service-title">
                                 <div class="service-title-name">
                                     <div class="text-center rounded p-3 mx-5 mb-4" style="background-color: #063c64;">
                                         <a href="#" class="h4 text-white mb-0"
-                                            style="text-decoration: none;">{{$club->cname}}</a>
+                                            style="text-decoration: none;">{{$club->club_name}}</a>
                                     </div>
 
 
@@ -481,11 +478,11 @@
                                 </div>
                                 <div class="service-content pb-4" style="background-color: white; color: black;">
                                     <a href="#" style="color: black;">
-                                        <h4 class="mb-4 py-3" style="color: black;">{{$club->cname}}</h4>
+                                        <h4 class="mb-4 py-3" style="color: black;">{{$club->club_name}}</h4>
                                     </a>
                                     <div class="px-4">
                                         <p class="mb-4" style="color: black;">
-                                            {{$club->intro}}
+                                            {{$club->introduction}}
                                         </p>
                                         <a href="{{ url('iot') }}" class="btn rounded-pill py-3 px-5"
                                             style="background-color: #800000; color: white;">Explore More</a>
@@ -499,122 +496,7 @@
                     </div>
                 </div>
                 @endforeach
-                <button onclick="openLogin('club')" id="plusButton"
-                    class="btn btn-outline-primary rounded-circle shadow">
-                    +
-                </button>
-
-                <style>
-                #plusButton {
-                    position: fixed;
-                    bottom: 100px;
-                    right: 30px;
-                    width: 60px;
-                    height: 60px;
-                    font-size: 32px;
-                    font-weight: bold;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    z-index: 1050;
-                    background-color: white;
-                    border: 2px solid #063c64;
-                    color: #063c64;
-                }
-
-                #plusButton:hover {
-                    background-color: #063c64;
-                    color: white;
-                }
-                </style>
-                <div class="modal fade" id="loginModal" tabindex="-1" aria-hidden="true">
-                    <div class="modal-dialog">
-                        <form id="loginForm" class="modal-content">
-                            @csrf
-                            <div class="modal-header">
-                                <h5 class="modal-title">Admin Login</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                    aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body">
-                                <input type="text" id="adminUsername" name="username" class="form-control mb-3"
-                                    placeholder="Username" autocomplete="off" required>
-                                <input type="password" id="adminPassword" name="password" class="form-control mb-3"
-                                    placeholder="Password" autocomplete="new-password" required>
-                                <div id="loginError" class="text-danger" style="display: none;"></div>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="submit" class="btn btn-primary">Login</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-
-
-                <script>
-                let loginAction = ''; // store whether student or club clicked
-
-                function openLogin(action) {
-                    loginAction = action;
-
-                    // Reset fields
-                    const username = document.getElementById('adminUsername');
-                    const password = document.getElementById('adminPassword');
-                    const errorBox = document.getElementById('loginError');
-
-                    if (username) username.value = '';
-                    if (password) password.value = '';
-                    if (errorBox) errorBox.style.display = 'none';
-
-                    // Open login modal
-                    const loginModal = new bootstrap.Modal(document.getElementById('loginModal'));
-                    loginModal.show();
-                }
-                </script>
-                <script>
-                document.getElementById("loginForm").addEventListener("submit", async function(e) {
-                    e.preventDefault();
-
-                    const form = e.target;
-                    const formData = new FormData(form);
-
-                    const response = await fetch("/check-admin", {
-                        method: "POST",
-                        headers: {
-                            "X-CSRF-TOKEN": form.querySelector('[name="_token"]').value
-                        },
-                        body: formData
-                    });
-
-                    const data = await response.json();
-                    console.log("Login Action:", loginAction);
-                    console.log("Server response:", data);
-
-                    if (data.success) {
-                        const loginModal = bootstrap.Modal.getInstance(document.getElementById(
-                            'loginModal'));
-                        loginModal.hide();
-
-                        if (loginAction === 'club') {
-                            const clubModal = new bootstrap.Modal(document.getElementById('addClubModal'));
-                            clubModal.show();
-                        } else if (loginAction === 'student') {
-                            window.location.href = "/students"; // your student page route
-                        }
-
-                        form.reset();
-                        document.getElementById("loginError").style.display = "none";
-
-                    } else {
-                        document.getElementById("loginError").textContent = "Invalid credentials.";
-                        document.getElementById("loginError").style.display = "block";
-                    }
-                });
-                </script>
-
-
-
-
+               
 
 
                 <!-- Footer Start -->
@@ -683,77 +565,7 @@
 
                 <!-- Template Javascript -->
                 <script src="{{asset('js/main.js')}}"></script>
-                <!-- Add Club Modal -->
-                <div class="modal fade" id="addClubModal" tabindex="-1" aria-labelledby="addClubModalLabel"
-                    aria-hidden="true">
-                    <div class="modal-dialog">
-                        <form method="POST" action="{{ route('clubs.store') }}" enctype="multipart/form-data"
-                            class="modal-content">
-                            @csrf
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="addClubModalLabel">Add New Club</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                    aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body">
-
-                                <div class="mb-3">
-                                    <label class="form-label">Club Name</label>
-                                    <input type="text" class="form-control" name="cname" required>
-                                </div>
-
-                                <div class="mb-3">
-                                    <label class="form-label">Club Logo</label>
-                                    <input type="file" class="form-control" name="logo" required>
-                                </div>
-
-                                <div class="mb-3">
-                                    <label class="form-label">Intro</label>
-                                    <textarea class="form-control" name="intro" rows="2"></textarea>
-                                </div>
-
-                                <div class="mb-3">
-                                    <label class="form-label">Mission</label>
-                                    <textarea class="form-control" name="mission" rows="2"></textarea>
-                                </div>
-
-                                <div class="mb-3">
-                                    <label class="form-label">Faculty Name</label>
-                                    <input type="text" class="form-control" name="faculty">
-                                </div>
-
-                                <div class="mb-3">
-                                    <label class="form-label">Faculty Contact</label>
-                                    <input type="text" class="form-control" name="facultyno">
-                                </div>
-
-                                <div class="mb-3">
-                                    <label class="form-label">Event Count</label>
-                                    <input type="number" class="form-control" name="eventno">
-                                </div>
-
-                                <div class="mb-3">
-                                    <label class="form-label">Team Members</label>
-                                    <input type="number" class="form-control" name="teamno">
-                                </div>
-
-                                <div class="mb-3">
-                                    <label class="form-label">Participants</label>
-                                    <input type="number" class="form-control" name="participants">
-                                </div>
-
-                                <div class="mb-3">
-                                    <label class="form-label">Year</label>
-                                    <input type="text" class="form-control" name="year">
-                                </div>
-
-                            </div>
-                            <div class="modal-footer">
-                                <button type="submit" class="btn btn-success">Save Club</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
+               
 
 </body>
 
